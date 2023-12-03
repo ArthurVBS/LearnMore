@@ -1,11 +1,18 @@
+import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, View } from 'react-native';
+import Login from './src/screens/Login';
+import Home from './src/screens/Home';
 
 export default function App() {
+  const [hasAccess, setHasAccess] = useState(false);
+
   return (
-    <View className="flex-1 justify-center items-center bg-white">
-      <Text className="text-lg px-4 text-center font-bold">Hello World!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <StatusBar style="light" />
+
+      {hasAccess && <Home setHasAccess={setHasAccess} />}
+
+      {!hasAccess && <Login setHasAccess={setHasAccess} />}
+    </>
   );
 }
