@@ -1,18 +1,12 @@
-import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import Login from './src/screens/Login';
-import Home from './src/screens/Home';
+import Routes from './src/routes';
+import { PermissionProvider } from './src/context/PermissionContext';
 
 export default function App() {
-  const [hasAccess, setHasAccess] = useState(false);
-
   return (
-    <>
+    <PermissionProvider>
       <StatusBar style="light" />
-
-      {hasAccess && <Home setHasAccess={setHasAccess} />}
-
-      {!hasAccess && <Login setHasAccess={setHasAccess} />}
-    </>
+      <Routes />
+    </PermissionProvider>
   );
 }

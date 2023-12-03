@@ -1,6 +1,8 @@
 {
   "data": [
-    { "username": "avbs", "password": "avbs4" },
-    { "username": "bgf", "password": "bgf2" }
+    { "permission": 3, "username": "avbs", "password": "avbs4" },
+    { "permission": 2, "username": "bgf", "password": "bgf2" },
+    { "permission": 1, "username": "mlsm", "password": "mlsm1" },
+    { "permission": 2, "username": "vccl", "password": "vccl" }
   ]
 }

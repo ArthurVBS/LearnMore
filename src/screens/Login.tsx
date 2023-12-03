@@ -1,18 +1,17 @@
 import { Button, Text, View } from 'react-native';
-import { checkPermission } from '../services/PermissionsService';
+import { checkUserPermission } from '../services/PermissionsService';
 import Field from '../components/Field';
 import { useState } from 'react';
+import { usePermission } from '../context/PermissionContext';
 
-type Props = {
-  setHasAccess: (hasAccess: boolean) => void;
-};
-
-export default function Login({ setHasAccess }: Props) {
+export default function Login() {
+  const { setPermission } = usePermission();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const checkPermissions = () => {
-    setHasAccess(checkPermission(username, password));
+  const login = () => {
+    const user = checkUserPermission(username, password);
+    setPermission(user);
   };
 
   return (
@@ -30,7 +29,7 @@ export default function Login({ setHasAccess }: Props) {
         setState={setPassword}
         icon="lock"
       />
-      <Button title="Login" onPress={() => checkPermissions()} />
+      <Button title="Login" onPress={() => login()} />
     </View>
   );
 }
