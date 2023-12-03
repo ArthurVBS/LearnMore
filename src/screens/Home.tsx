@@ -2,11 +2,7 @@ import { Text, TouchableOpacity, View } from 'react-native';
 import { usePermission } from '../context/PermissionContext';
 
 export default function Home() {
-  const { permission, setPermission } = usePermission();
-
-  const logout = () => {
-    setPermission({ username: '', password: '', permission: 0 });
-  };
+  const { permission, logout } = usePermission();
 
   return (
     <View className="flex-1 justify-center items-center bg-indigo-900 px-4">

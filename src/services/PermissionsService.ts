@@ -1,3 +1,4 @@
+import PERMISSIONS from '../constants/PermissionsConstant';
 import users from '../data/users.json';
 import { User } from '../types/user';
 
@@ -10,7 +11,12 @@ export const checkUserPermission: checkUserPermissionType = (
   const user = users.data.find(
     user => user.username === username && user.password === password
   );
-  const defaultUser = { username: '', password: '', permission: 0 };
+  const defaultUser = {
+    id: null,
+    username: '',
+    password: '',
+    permission: PERMISSIONS.EXTERNAL_USER
+  };
   return user ? user : defaultUser;
 };
 

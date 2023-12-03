@@ -5,13 +5,13 @@ import { useState } from 'react';
 import { usePermission } from '../context/PermissionContext';
 
 export default function Login() {
-  const { setPermission } = usePermission();
+  const { login } = usePermission();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const login = () => {
+  const getUserByUsernameAndPassword = () => {
     const user = checkUserPermission(username, password);
-    setPermission(user);
+    login(user);
   };
 
   return (
@@ -29,7 +29,7 @@ export default function Login() {
         setState={setPassword}
         icon="lock"
       />
-      <Button title="Login" onPress={() => login()} />
+      <Button title="Login" onPress={() => getUserByUsernameAndPassword()} />
     </View>
   );
 }

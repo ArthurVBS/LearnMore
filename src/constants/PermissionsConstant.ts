@@ -1,7 +1,7 @@
 const PERMISSIONS = {
   ADMIN: 3,
   TEACHER: 2,
-  USER: 1,
+  STUDENT: 1,
   EXTERNAL_USER: 0
 };
 

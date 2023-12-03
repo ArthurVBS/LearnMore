@@ -1,0 +1,40 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Course 1",
+      "description": "Description 1",
+      "teacherId": 4,
+      "studentsId": [2],
+      "classes": [
+        {
+          "id": 1,
+          "name": "Class 1",
+          "description": "Description 1",
+          "class": "https://youtu.be/DOxsuLWw8VM?si=74q4LHwP0ICa6XnW"
+        },
+        {
+          "id": 2,
+          "name": "Class 2",
+          "description": "Description 2",
+          "class": "https://youtu.be/SqDjQPoJxiw?si=ypd7K96He3BAs8hr"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Course 2",
+      "description": "Description 2",
+      "teacherId": 5,
+      "studentsId": [2, 3],
+      "classes": [
+        {
+          "id": 1,
+          "name": "Class 1",
+          "description": "Description 1",
+          "class": "https://youtu.be/3XCVM3G3pns?si=LXxL2P_Fm6dTfdm6"
+        }
+      ]
+    }
+  ]
+}
