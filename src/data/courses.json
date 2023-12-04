@@ -2,8 +2,8 @@
   "data": [
     {
       "id": 1,
-      "name": "Course 1",
-      "description": "Description 1",
+      "name": "Fundamentals: Python",
+      "description": "This course will cover the fundamentals of the Python language.",
       "teacherId": 4,
       "studentsId": [2],
       "classes": [
@@ -23,8 +23,8 @@
     },
     {
       "id": 2,
-      "name": "Course 2",
-      "description": "Description 2",
+      "name": "Data Mining: Python",
+      "description": "This course will cover how to use the Python language to mine data",
       "teacherId": 5,
       "studentsId": [2, 3],
       "classes": [

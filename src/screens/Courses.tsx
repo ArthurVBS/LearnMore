@@ -16,9 +16,15 @@ export default function Courses() {
   };
 
   return (
-    <View className="flex-1 justify-center items-center bg-indigo-900 px-4">
-      <Text className="text-white text-3xl">Courses</Text>
-      {renderAllCourses()}
+    <View className="flex-1 bg-indigo-900">
+      <View className="w-full flex-row bg-white pt-4 px-2 pb-5">
+        <Text className="text-indigo-900 text-2xl tracking-wide mt-11 font-bold">
+          All Courses
+        </Text>
+      </View>
+      <View className="justify-center items-center w-full p-4">
+        {renderAllCourses()}
+      </View>
     </View>
   );
 }

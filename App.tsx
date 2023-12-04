@@ -5,7 +5,7 @@ import { PermissionProvider } from './src/context/PermissionContext';
 export default function App() {
   return (
     <PermissionProvider>
-      <StatusBar style="light" />
+      <StatusBar style="dark" />
       <Routes />
     </PermissionProvider>
   );

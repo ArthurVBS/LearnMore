@@ -1,5 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Feather } from '@expo/vector-icons';
+import colors from 'tailwindcss/colors';
 import Home from '../screens/Home';
 import Courses from '../screens/Courses';
 
@@ -18,6 +19,7 @@ export default function TabRoutes() {
           tabBarIcon: ({ color, size }) => (
             <Feather name="home" color={color} size={size} />
           ),
+          tabBarActiveTintColor: colors.indigo[900],
           tabBarLabel: 'Home'
         }}
       />
@@ -29,6 +31,7 @@ export default function TabRoutes() {
           tabBarIcon: ({ color, size }) => (
             <Feather name="list" color={color} size={size} />
           ),
+          tabBarActiveTintColor: colors.indigo[900],
           tabBarLabel: 'Courses'
         }}
       />
