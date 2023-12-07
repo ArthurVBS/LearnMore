@@ -7,8 +7,6 @@ export default function CourseManagementScreen() {
   const { permission } = usePermission();
   const courses = getCoursesByTeacherId(permission.id);
 
-  console.log(courses);
-
   return (
     <View className="flex-1 bg-indigo-900">
       <View className="w-full justify-center items-center bg-white pt-4 px-2 pb-5">
