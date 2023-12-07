@@ -10,4 +10,6 @@ export type RootTabParamList = {
   Home: undefined;
   Courses: undefined;
   Permissions: undefined;
+  MyCourses: undefined;
+  CoursesManagement: undefined;
 };
