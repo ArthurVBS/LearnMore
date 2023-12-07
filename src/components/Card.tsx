@@ -1,7 +1,7 @@
-import { Text, View } from 'react-native';
 import { Course } from '../types/course';
 import { Feather } from '@expo/vector-icons';
 import { usePermission } from '../context/PermissionContext';
+import { Text, View } from 'react-native';
 
 type Props = {
   course: Course;

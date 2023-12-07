@@ -1,10 +1,11 @@
+import colors from 'tailwindcss/colors';
+import Courses from '../screens/Courses';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Feather } from '@expo/vector-icons';
-import colors from 'tailwindcss/colors';
 import Home from '../screens/Home';
-import Courses from '../screens/Courses';
+import { RootTabParamList } from '../types/routes';
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<RootTabParamList>();
 
 export default function TabRoutes() {
   return (

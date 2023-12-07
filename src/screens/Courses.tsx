@@ -1,19 +1,21 @@
-import { Text, View } from 'react-native';
-import { getAllCourses } from '../services/CoursesService';
-import { useState, useEffect } from 'react';
-import { Course } from '../types/course';
 import Card from '../components/Card';
+import { Course } from '../types/course';
+import { getAllCourses } from '../services/CoursesService';
+import { NavigationProp } from '@react-navigation/native';
+import { RootStackParamList } from '../types/routes';
+import { FlatList, Text, TouchableOpacity, View } from 'react-native';
+import { useEffect, useState } from 'react';
 
-export default function Courses() {
+type Props = {
+  navigation: NavigationProp<RootStackParamList, 'HomeCourses'>;
+};
+
+export default function Courses({ navigation }: Props) {
   const [courses, setCourses] = useState<Course[]>([]);
 
   useEffect(() => {
     setCourses(getAllCourses());
   }, []);
-
-  const renderAllCourses = () => {
-    return courses.map(course => <Card key={course.id} course={course}></Card>);
-  };
 
   return (
     <View className="flex-1 bg-indigo-900">
@@ -23,7 +25,16 @@ export default function Courses() {
         </Text>
       </View>
       <View className="justify-center items-center w-full p-4">
-        {renderAllCourses()}
+        <FlatList
+          data={courses}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Course', { course: item })}
+            >
+              <Card course={item} />
+            </TouchableOpacity>
+          )}
+        />
       </View>
     </View>
   );

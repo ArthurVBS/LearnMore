@@ -1,19 +1,19 @@
-import { NavigationContainer } from '@react-navigation/native';
-import TabRoutes from './tab.routes';
-import PERMISSIONS from '../constants/PermissionsConstant';
 import Login from '../screens/Login';
+import { NavigationContainer } from '@react-navigation/native';
+import PERMISSIONS from '../constants/PermissionsConstant';
+import StackRoutes from './stack.routes';
 import { usePermission } from '../context/PermissionContext';
 
 export default function Routes() {
   const { permission } = usePermission();
 
+  const isExternalUser = () => {
+    return permission.permission == PERMISSIONS.EXTERNAL_USER;
+  };
+
   return (
     <NavigationContainer>
-      {permission.permission == PERMISSIONS.EXTERNAL_USER ? (
-        <Login />
-      ) : (
-        <TabRoutes />
-      )}
+      {isExternalUser() ? <Login /> : <StackRoutes />}
     </NavigationContainer>
   );
 }
