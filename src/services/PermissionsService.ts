@@ -20,9 +20,8 @@ export const checkUserPermission: checkUserPermissionType = (
   return user ? user : defaultUser;
 };
 
-type getUserPermissionType = (username: string) => number;
+type getAllUsersPermissionType = () => User[];
 
-export const getUserPermission: getUserPermissionType = username => {
-  const user = users.data.find(user => user.username === username);
-  return user ? user.permission : 0;
+export const getAllUsersPermission: getAllUsersPermissionType = () => {
+  return users.data;
 };

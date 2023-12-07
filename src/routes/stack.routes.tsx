@@ -1,3 +1,4 @@
+import Class from '../screens/Class';
 import Course from '../screens/Course';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../types/routes';
@@ -10,6 +11,7 @@ export default function StackRoutes() {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="HomeCourses" component={TabRoutes} />
       <Stack.Screen name="Course" component={Course} />
+      <Stack.Screen name="Class" component={Class} />
     </Stack.Navigator>
   );
 }

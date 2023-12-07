@@ -4,10 +4,19 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Feather } from '@expo/vector-icons';
 import Home from '../screens/Home';
 import { RootTabParamList } from '../types/routes';
+import { usePermission } from '../context/PermissionContext';
+import PERMISSIONS from '../constants/PermissionsConstant';
+import Permission from '../screens/Permissions';
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
 
 export default function TabRoutes() {
+  const { permission } = usePermission();
+
+  const isAdminUser = () => {
+    return permission.permission == PERMISSIONS.ADMIN;
+  };
+
   return (
     <Tab.Navigator
       initialRouteName="Home"
@@ -36,6 +45,20 @@ export default function TabRoutes() {
           tabBarLabel: 'Courses'
         }}
       />
+
+      {isAdminUser() && (
+        <Tab.Screen
+          name="Permissions"
+          component={Permission}
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <Feather name="users" color={color} size={size} />
+            ),
+            tabBarActiveTintColor: colors.indigo[900],
+            tabBarLabel: 'Permissions'
+          }}
+        />
+      )}
     </Tab.Navigator>
   );
 }

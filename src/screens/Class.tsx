@@ -1,40 +1,30 @@
-import { Course } from '../types/course';
+import { CourseClass } from '../types/course';
 import colors from 'tailwindcss/colors';
 import { Feather } from '@expo/vector-icons';
 import { RootStackParamList } from '../types/routes';
 import { NavigationProp, RouteProp } from '@react-navigation/native';
-import { FlatList, Text, TouchableOpacity, View } from 'react-native';
-import ClassCard from '../components/ClassCard';
+import { Text, TouchableOpacity, View } from 'react-native';
 
 type Props = {
-  route: RouteProp<RootStackParamList, 'Course'>;
-  navigation: NavigationProp<RootStackParamList, 'Course'>;
+  route: RouteProp<RootStackParamList, 'Class'>;
+  navigation: NavigationProp<RootStackParamList, 'Class'>;
 };
 
-export default function CourseScreen({ navigation, route }: Props) {
-  const course = route.params.course as Course;
+export default function ClassScreen({ navigation, route }: Props) {
+  const courseClass = route.params.class as CourseClass;
 
   return (
     <View className="flex-1 bg-white">
       <View className="flex-1 bg-indigo-900 mt-12 items-center">
         <Text className="text-white text-2xl text-center tracking-wide font-bold w-full py-4 border-b-2 border-white">
-          {course.name}
+          {courseClass.name}
         </Text>
         <Text className="text-white text-justify text-base break-all w-full p-4 border-b-2 border-white">
-          {course.description}
+          {courseClass.description}
         </Text>
-        <View className="w-full border-t-2">
-          <FlatList
-            data={course.classes}
-            renderItem={({ item }) => (
-              <TouchableOpacity
-                onPress={() => navigation.navigate('Class', { class: item })}
-              >
-                <ClassCard key={item.id} courseClass={item} />
-              </TouchableOpacity>
-            )}
-          />
-        </View>
+        <Text className="text-white text-justify text-base break-all w-full p-4">
+          {courseClass.class}
+        </Text>
       </View>
       <View className="bg-white justify-center items-center w-full">
         <TouchableOpacity className="p-3" onPress={() => navigation.goBack()}>

@@ -6,7 +6,7 @@ import { Feather } from '@expo/vector-icons';
 import { useState } from 'react';
 import { usePermission } from '../context/PermissionContext';
 
-export default function Login() {
+export default function LoginScreen() {
   const { login } = usePermission();
   const [hasUserTried, setHasUserTried] = useState(false);
   const [username, setUsername] = useState('');

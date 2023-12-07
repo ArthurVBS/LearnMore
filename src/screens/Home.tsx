@@ -4,7 +4,7 @@ import { Feather } from '@expo/vector-icons';
 import colors from 'tailwindcss/colors';
 import PERMISSIONS from '../constants/PermissionsConstant';
 
-export default function Home() {
+export default function HomeScreen() {
   const { permission, logout } = usePermission();
 
   const getPermissionName = () => {

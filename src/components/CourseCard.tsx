@@ -7,7 +7,7 @@ type Props = {
   course: Course;
 };
 
-export default function Card({ course }: Props) {
+export default function CourseCard({ course }: Props) {
   const { permission } = usePermission();
 
   const isSubscribed = () => {
