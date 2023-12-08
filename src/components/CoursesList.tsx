@@ -7,9 +7,14 @@ import CourseCard from './CourseCard';
 type Props = {
   courses: Course[];
   navigation?: NavigationProp<RootStackParamList, 'HomeCourses'>;
+  marginBottom?: string;
 };
 
-export default function CoursesList({ courses, navigation }: Props) {
+export default function CoursesList({
+  courses,
+  navigation,
+  marginBottom
+}: Props) {
   const renderCourseCard = () => {
     if (navigation) {
       return courses.map(course => (
@@ -28,7 +33,11 @@ export default function CoursesList({ courses, navigation }: Props) {
   };
 
   return (
-    <View className="justify-center items-center w-full p-4 pb-28">
+    <View
+      className={`justify-center items-center w-full p-4 ${
+        marginBottom ? marginBottom : 'pb-28'
+      } `}
+    >
       <ScrollView className="w-full">{renderCourseCard()}</ScrollView>
     </View>
   );
