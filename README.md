@@ -75,7 +75,7 @@
 
 ## 📝 License
 
-- This project is licensed under the [GNU GPLv3](https://github.com/ArthurVBS/LearnMore/blob/main/LICENSE)
+- This project is licensed under the [GNU GPLv3](https://github.com/ArthurVBS/LearnMore/blob/master/LICENSE)
 
 <h2 align="center">👨🏽‍💻 Author</h2>
 <div align="center">
