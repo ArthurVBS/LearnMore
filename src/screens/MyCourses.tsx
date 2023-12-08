@@ -1,9 +1,15 @@
-import { FlatList, Text, View } from 'react-native';
+import { FlatList, Text, TouchableOpacity, View } from 'react-native';
 import { getCoursesByStudentId } from '../services/CoursesService';
 import { usePermission } from '../context/PermissionContext';
 import CourseCard from '../components/CourseCard';
+import { NavigationProp } from '@react-navigation/native';
+import { RootStackParamList } from '../types/routes';
 
-export default function MyCoursesScreen() {
+type Props = {
+  navigation: NavigationProp<RootStackParamList, 'HomeCourses'>;
+};
+
+export default function MyCoursesScreen({ navigation }: Props) {
   const { permission } = usePermission();
   const courses = getCoursesByStudentId(permission.id);
 
@@ -17,7 +23,13 @@ export default function MyCoursesScreen() {
       <View className="justify-center items-center w-full p-4">
         <FlatList
           data={courses}
-          renderItem={({ item }) => <CourseCard key={item.id} course={item} />}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Course', { course: item })}
+            >
+              <CourseCard key={item.id} course={item} />
+            </TouchableOpacity>
+          )}
         />
       </View>
     </View>

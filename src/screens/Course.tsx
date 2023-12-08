@@ -1,10 +1,12 @@
-import { Course } from '../types/course';
+import { Course, CourseClass } from '../types/course';
 import colors from 'tailwindcss/colors';
 import { Feather } from '@expo/vector-icons';
 import { RootStackParamList } from '../types/routes';
 import { NavigationProp, RouteProp } from '@react-navigation/native';
 import { FlatList, Text, TouchableOpacity, View } from 'react-native';
 import ClassCard from '../components/ClassCard';
+import { usePermission } from '../context/PermissionContext';
+import { useEffect, useState } from 'react';
 
 type Props = {
   route: RouteProp<RootStackParamList, 'Course'>;
@@ -12,7 +14,21 @@ type Props = {
 };
 
 export default function CourseScreen({ navigation, route }: Props) {
+  const { permission } = usePermission();
+  const [isSubscribed, setIsSubscribed] = useState(false);
   const course = route.params.course as Course;
+
+  useEffect(() => {
+    setIsSubscribed(
+      permission.id !== null && course.studentsId.includes(permission.id)
+    );
+  });
+
+  const renderOnPress = (courseClass: CourseClass) => {
+    if (isSubscribed) {
+      return () => navigation.navigate('Class', { class: courseClass });
+    }
+  };
 
   return (
     <View className="flex-1 bg-white">
@@ -27,15 +43,19 @@ export default function CourseScreen({ navigation, route }: Props) {
           <FlatList
             data={course.classes}
             renderItem={({ item }) => (
-              <TouchableOpacity
-                onPress={() => navigation.navigate('Class', { class: item })}
-              >
+              <TouchableOpacity onPress={renderOnPress(item)}>
                 <ClassCard key={item.id} courseClass={item} />
               </TouchableOpacity>
             )}
           />
         </View>
       </View>
+      {!isSubscribed && (
+        <View className="bg-indigo-900 flex-row justify-center items-center w-full">
+          <Feather name="info" size={24} color={colors.white} />
+          <Text className="p-2 text-white text-lg">You are not subscribed</Text>
+        </View>
+      )}
       <View className="bg-white justify-center items-center w-full">
         <TouchableOpacity className="p-3" onPress={() => navigation.goBack()}>
           <Feather name="arrow-left" size={32} color={colors.indigo[900]} />
