@@ -1,11 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import { Text, View } from 'react-native';
+import Routes from './src/routes';
+import { PermissionProvider } from './src/context/PermissionContext';
 
 export default function App() {
   return (
-    <View className="flex-1 justify-center items-center bg-white">
-      <Text className="text-lg px-4 text-center font-bold">Hello World!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <PermissionProvider>
+      <StatusBar style="dark" />
+      <Routes />
+    </PermissionProvider>
   );
 }

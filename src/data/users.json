@@ -1,0 +1,9 @@
+{
+  "data": [
+    { "id": 1, "permission": 3, "username": "avbs", "password": "avbs4" },
+    { "id": 2, "permission": 1, "username": "bgf", "password": "bgf2" },
+    { "id": 3, "permission": 1, "username": "mlsm", "password": "mlsm1" },
+    { "id": 4, "permission": 2, "username": "vccl", "password": "vccl" },
+    { "id": 5, "permission": 2, "username": "vfl", "password": "vfl1" }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Python 3 Course - World 1: Fundamentals",
+      "description": "This course will cover the fundamentals of the Python language.",
+      "teacherId": 4,
+      "studentsId": [2],
+      "classes": [
+        {
+          "id": 1,
+          "name": "Be a Programmer",
+          "description": "Are you thinking about being a Programmer and don't know where to start? In this class we will give you all the information and show you the way forward.",
+          "videoId": "S9uPNppGsGo"
+        },
+        {
+          "id": 2,
+          "name": "What is Python for?",
+          "description": "Where does Python come from? Why this name? Which major global companies use Python in their software? These and many other questions will be answered in this class.",
+          "videoId": "Mp0vhMDI7fA"
+        },
+        {
+          "id": 3,
+          "name": "Installing Python3 and IDLE",
+          "description": "Understand how an Interpreter works and see how Python works. Then learn how to install Python 3.0 and IDLE on your Windows, Linux or Mac OS computer.",
+          "videoId": "VuKvR1J2LQE"
+        },
+        {
+          "id": 4,
+          "name": "First commands in Python3",
+          "description": "Now it's time to learn the basic Python commands and make your first programs in Python.",
+          "videoId": "31llNGKWDdo"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Free JavaScript and ECMAScript Course for Beginners",
+      "description": "This course will cover how to use the JavaScript language and the ECMAScript standard to create dynamic web pages.",
+      "teacherId": 5,
+      "studentsId": [2, 3],
+      "classes": [
+        {
+          "id": 1,
+          "name": "What is JavaScript capable of doing?",
+          "description": "Do you know what the JavaScript / ECMAScript language is for? Do you know the difference between a client and a server for the Internet? Do you know what HTML5, CSS3 and JavaScript technologies are for? Can you name 4 websites that use the JavaScript language in their codes?",
+          "videoId": "Ptbk2af68e8"
+        },
+        {
+          "id": 2,
+          "name": "JavaScript: how did we get here?",
+          "description": "Do you know which company created JavaScript? Do you know the difference between Java and JavaScript languages? Do you know the relationship between the JavaScript and ECMAScript languages? Did you know that, for example, the program used to access WhatsApp on your computer is made in JavaScript?",
+          "videoId": "rUTKomc2gG8"
+        },
+        {
+          "id": 3,
+          "name": "Taking the first steps",
+          "description": "What are the best JavaScript books in Portuguese? Where can I access the official JavaScript documentation in Portuguese and English? What are the software requirements for learning to program in JavaScript? What is the best editor for JavaScript codes? How to install Node.js on your computer? How to configure Node.js? To learn JavaScript, is it really necessary to know a lot of English? Are you in need of tips to really study and learn?",
+          "videoId": "FdePtO5JSd0"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "MySQL Database Course",
+      "description": "This course will cover how to use the MySQL database.",
+      "teacherId": 5,
+      "studentsId": [],
+      "classes": [
+        {
+          "id": 1,
+          "name": "What is a Database?",
+          "description": "Find out how a Database works and how they emerged in the world of technology.",
+          "videoId": "FdePtO5JSd0"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Modern PHP Course - Module 1",
+      "description": "A free modern PHP course that can change your view of the most used language on the Web.",
+      "teacherId": 4,
+      "studentsId": [],
+      "classes": []
+    }
+  ]
+}
