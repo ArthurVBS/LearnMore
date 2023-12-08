@@ -68,7 +68,7 @@
 
 - 💻 Download the ZIP or Clone the application on your machine,
 - Open CMD and install node/react modules: `yarn install`,
-- Finally start the project `yarn expo --clear`.
+- Finally start the project `yarn start --clear`.
 - Access the App:
   - If you're in a Phone, Scan the Expo Go QR Code on its app.
   - If you're using a emulator just type the letter 'A'.
