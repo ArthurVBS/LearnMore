@@ -1,5 +1,5 @@
 export type User = {
-  id: number | null;
+  id: number;
   username: string;
   password: string;
   permission: number;

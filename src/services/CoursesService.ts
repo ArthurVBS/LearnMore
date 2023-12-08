@@ -7,22 +7,20 @@ export const getAllCourses: getAllCoursesType = () => {
   return courses.data;
 };
 
-type getCoursesByTeacherIdType = (teacherId: number | null) => Course[] | null;
+type getCoursesByTeacherIdType = (teacherId: number) => Course[];
 
 export const getCoursesByTeacherId: getCoursesByTeacherIdType = teacherId => {
   const coursesByTeacher = courses.data.filter(
     course => course.teacherId === teacherId
   );
-  return coursesByTeacher.length > 0 ? coursesByTeacher : null;
+  return coursesByTeacher.length > 0 ? coursesByTeacher : [];
 };
 
-type getCoursesByStudentIdType = (teacherId: number | null) => Course[] | null;
+type getCoursesByStudentIdType = (studentId: number) => Course[];
 
 export const getCoursesByStudentId: getCoursesByStudentIdType = studentId => {
-  if (!studentId) return null;
-
   const coursesByStudent = courses.data.filter(course =>
     course.studentsId.includes(studentId)
   );
-  return coursesByStudent.length > 0 ? coursesByStudent : null;
+  return coursesByStudent.length > 0 ? coursesByStudent : [];
 };

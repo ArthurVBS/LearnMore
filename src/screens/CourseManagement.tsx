@@ -1,7 +1,7 @@
-import { FlatList, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { getCoursesByTeacherId } from '../services/CoursesService';
 import { usePermission } from '../context/PermissionContext';
-import CourseCard from '../components/CourseCard';
+import CoursesList from '../components/CoursesList';
 
 export default function CourseManagementScreen() {
   const { permission } = usePermission();
@@ -14,12 +14,7 @@ export default function CourseManagementScreen() {
           Courses Management
         </Text>
       </View>
-      <View className="justify-center items-center w-full p-4">
-        <FlatList
-          data={courses}
-          renderItem={({ item }) => <CourseCard key={item.id} course={item} />}
-        />
-      </View>
+      <CoursesList courses={courses} />
     </View>
   );
 }

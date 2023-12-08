@@ -1,9 +1,11 @@
-import { FlatList, Text, TouchableOpacity, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { getCoursesByStudentId } from '../services/CoursesService';
 import { usePermission } from '../context/PermissionContext';
-import CourseCard from '../components/CourseCard';
 import { NavigationProp } from '@react-navigation/native';
 import { RootStackParamList } from '../types/routes';
+import CoursesList from '../components/CoursesList';
+import { useEffect, useState } from 'react';
+import { Course } from '../types/course';
 
 type Props = {
   navigation: NavigationProp<RootStackParamList, 'HomeCourses'>;
@@ -11,7 +13,11 @@ type Props = {
 
 export default function MyCoursesScreen({ navigation }: Props) {
   const { permission } = usePermission();
-  const courses = getCoursesByStudentId(permission.id);
+  const [courses, setCourses] = useState<Course[]>([]);
+
+  useEffect(() => {
+    setCourses(getCoursesByStudentId(permission.id));
+  }, []);
 
   return (
     <View className="flex-1 bg-indigo-900">
@@ -20,18 +26,7 @@ export default function MyCoursesScreen({ navigation }: Props) {
           My Courses
         </Text>
       </View>
-      <View className="justify-center items-center w-full p-4">
-        <FlatList
-          data={courses}
-          renderItem={({ item }) => (
-            <TouchableOpacity
-              onPress={() => navigation.navigate('Course', { course: item })}
-            >
-              <CourseCard key={item.id} course={item} />
-            </TouchableOpacity>
-          )}
-        />
-      </View>
+      <CoursesList courses={courses} navigation={navigation} />
     </View>
   );
 }

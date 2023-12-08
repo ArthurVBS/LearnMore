@@ -17,10 +17,10 @@ export default function CourseCard({ course }: Props) {
   return (
     <View className="flex-row justify-between border-white border-2 rounded-lg w-full mb-4">
       <View className="w-4/5 p-4">
-        <Text className="text-white text-2xl font-bold mb-2">
+        <Text className="text-white text-xl break-all font-bold mb-2">
           {course.name}
         </Text>
-        <Text className="text-white text-justify text-base break-all">
+        <Text className="text-white text-justify break-all">
           {course.description}
         </Text>
       </View>

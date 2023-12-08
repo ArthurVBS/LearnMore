@@ -11,5 +11,5 @@ export type CourseClass = {
   id: number;
   name: string;
   description: string;
-  class: string;
+  videoId: string;
 };

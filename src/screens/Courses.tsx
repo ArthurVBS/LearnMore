@@ -1,10 +1,10 @@
-import CourseCard from '../components/CourseCard';
 import { Course } from '../types/course';
 import { getAllCourses } from '../services/CoursesService';
 import { NavigationProp } from '@react-navigation/native';
 import { RootStackParamList } from '../types/routes';
-import { FlatList, Text, TouchableOpacity, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { useEffect, useState } from 'react';
+import CoursesList from '../components/CoursesList';
 
 type Props = {
   navigation: NavigationProp<RootStackParamList, 'HomeCourses'>;
@@ -24,18 +24,7 @@ export default function CoursesScreen({ navigation }: Props) {
           All Courses
         </Text>
       </View>
-      <View className="justify-center items-center w-full p-4">
-        <FlatList
-          data={courses}
-          renderItem={({ item }) => (
-            <TouchableOpacity
-              onPress={() => navigation.navigate('Course', { course: item })}
-            >
-              <CourseCard key={item.id} course={item} />
-            </TouchableOpacity>
-          )}
-        />
-      </View>
+      <CoursesList courses={courses} navigation={navigation} />
     </View>
   );
 }
