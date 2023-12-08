@@ -8,7 +8,6 @@ import { usePermission } from '../context/PermissionContext';
 import PERMISSIONS from '../constants/PermissionsConstant';
 import Permission from '../screens/Permissions';
 import CourseManagement from '../screens/CourseManagement';
-import MyCourses from '../screens/MyCourses';
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
 
@@ -21,10 +20,6 @@ export default function TabRoutes() {
 
   const isTeacherUser = () => {
     return permission.permission == PERMISSIONS.TEACHER;
-  };
-
-  const isStudentUser = () => {
-    return permission.permission == PERMISSIONS.STUDENT;
   };
 
   return (
@@ -55,20 +50,6 @@ export default function TabRoutes() {
           tabBarLabel: 'Courses'
         }}
       />
-
-      {isStudentUser() && (
-        <Tab.Screen
-          name="MyCourses"
-          component={MyCourses}
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <Feather name="book-open" color={color} size={size} />
-            ),
-            tabBarActiveTintColor: colors.indigo[900],
-            tabBarLabel: 'My Courses'
-          }}
-        />
-      )}
 
       {isTeacherUser() && (
         <Tab.Screen

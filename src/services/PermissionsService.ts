@@ -12,7 +12,7 @@ export const checkUserPermission: checkUserPermissionType = (
     user => user.username === username && user.password === password
   );
   const defaultUser = {
-    id: null,
+    id: -1,
     username: '',
     password: '',
     permission: PERMISSIONS.EXTERNAL_USER
